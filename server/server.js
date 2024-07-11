@@ -1,7 +1,10 @@
 const express = require("express");
 const mysql = require("mysql2");
 const server = express();
+var cors = require('cors')
+
 server.use(express.json());
+server.use(cors())
 
 const connection = mysql.createConnection({
   host: "localhost",
@@ -9,17 +12,51 @@ const connection = mysql.createConnection({
   password: "Pluralsight@987",
   database: "bookstore",
 });
-const port = 3000;
+const port = 3001;
 // BOOKS API's
 server.get("/books", (req, res) => {
-  connection.query("SELECT * from Books", (err, result, fields) => {
+  let dbQuery = `SELECT 
+    b.book_id, 
+    b.title, 
+    b.price, 
+    b.publication_date, 
+    a.name AS author_name, 
+    a.author_id,
+    g.genre_name,
+    g.genre_id
+FROM 
+    Books b
+JOIN 
+    Authors a ON b.author_id = a.author_id
+JOIN 
+    Genres g ON b.genre_id = g.genre_id`
+  connection.query(dbQuery, (err, result, fields) => {
+    console.log(err);
     res.send(result);
   });
 });
 server.get("/books/:book_id", (req, res) => {
   let book_id = req.params.book_id;
+  let dbQuery = `SELECT 
+    b.book_id, 
+    b.title, 
+    b.price, 
+    b.publication_date, 
+    a.name AS author_name, 
+    g.genre_name,
+    a.author_id,
+    g.genre_id
+FROM 
+    Books b
+JOIN 
+    Authors a ON b.author_id = a.author_id
+JOIN 
+    Genres g ON b.genre_id = g.genre_id
+WHERE 
+    b.book_id = ${book_id};`
+
   connection.query(
-    "SELECT * from Books WHERE book_id=" + book_id,
+    dbQuery,
     (err, result, fields) => {
       res.send(result);
     }

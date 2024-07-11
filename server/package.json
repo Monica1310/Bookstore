@@ -9,6 +9,7 @@
   "author": "monica",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "mysql2": "^3.10.2"
   }
 }
