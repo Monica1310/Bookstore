@@ -1,0 +1,36 @@
+.navbar {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px 20px;
+          background: linear-gradient(45deg, #3e2723, #1b0000); /* Brownish black gradient */
+          color: white;
+        }
+        
+        .navbar-logo a {
+          text-decoration: none;
+          color: white;
+          font-size: 24px;
+          font-weight: bold;
+        }
+        
+        .navbar-links {
+          list-style: none;
+          display: flex;
+          gap: 15px;
+        }
+        
+        .navbar-links li {
+          margin: 0;
+        }
+        
+        .navbar-links a {
+          text-decoration: none;
+          color: white;
+          font-size: 18px;
+        }
+        
+        .navbar-links a:hover {
+          color: #ffccbc; /* Light brown color for hover effect */
+        }
+        
