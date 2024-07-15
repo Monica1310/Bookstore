@@ -1,0 +1,35 @@
+.books-container {
+          max-width: 90%;
+          margin: 50px auto;
+          padding: 20px;
+          border: 1px solid #ddd;
+          border-radius: 10px;
+          background-color: rgba(255, 255, 255, 0.8);
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .books-container h1 {
+          text-align: center;
+          margin-bottom: 20px;
+          color: #333;
+        }
+        
+        .books-table {
+          width: 100%;
+        }
+        
+        .books-table .ant-table {
+          border-radius: 10px;
+          overflow: hidden;
+          background-color: #fff;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .books-table .ant-table-thead > tr > th {
+          background-color: #f0f2f5;
+        }
+        
+        .books-table .ant-table-tbody > tr > td {
+          padding: 16px;
+        }
+        
